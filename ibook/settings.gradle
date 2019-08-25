@@ -1,0 +1,6 @@
+rootProject.name = 'ibook'
+include 'ibook-service'
+include 'ibook-commons'
+include 'ibook-portal'
+include 'ibook-api'
+

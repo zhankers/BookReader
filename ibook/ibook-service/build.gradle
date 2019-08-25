@@ -1,0 +1,29 @@
+dependencies {
+
+    compile project(":ibook-commons")
+    compile project(":ibook-api")
+
+    compile group: 'org.apache.dubbo', name: 'dubbo-spring-boot-starter', version: "${dubboVersion}"
+    compile("org.apache.dubbo:dubbo:2.7.3")
+    compile("org.apache.dubbo:dubbo-dependencies-zookeeper:2.7.3") {
+        exclude group: "org.slf4j", module: "slf4j-log4j12"
+    }
+    compile group: 'com.101tec', name: 'zkclient', version: '0.10'
+    compile group: 'com.alibaba', name: 'druid-spring-boot-starter', version: '1.1.10'
+
+}
+
+/*def createDir = {
+    path ->
+        File dir = new File(path)
+        if (!dir.exists()) {
+            dir.mkdirs()
+        }
+}
+
+task createSourceDir(){
+    def paths = ['src/main/java', 'src/main/resources', 'src/test/java', 'src/test/resources']
+    doFirst {
+        paths.forEach(createDir)
+    }
+}*/
