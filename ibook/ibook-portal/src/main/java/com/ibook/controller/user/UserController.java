@@ -25,4 +25,12 @@ public class UserController {
 
     }
 
+    @GetMapping("/register")
+    public ResponseEntity<String> register(String regInfo, HttpServletResponse httpRsp) {
+        // 登录鉴权
+        String id = userService.register(regInfo);
+        return new ResponseEntity<>(id, HttpStatus.OK);
+
+    }
+
 }

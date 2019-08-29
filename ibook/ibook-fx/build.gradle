@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+//    id 'org.springframework.boot' version '2.1.7.RELEASE'
+//    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+}
+
+group 'com.ibook'
+version '0.0.1.SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter:2.1.7.RELEASE'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.1.7.RELEASE'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'de.roskenet', name: 'springboot-javafx-test', version: '1.3.0'
+
+    compile group: 'de.roskenet', name: 'springboot-javafx-support', version: '2.1.6'
+    compile group: 'org.hibernate.validator', name: 'hibernate-validator', version: '6.0.16.Final'
+    //compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: '2.1.7.RELEASE'
+    compile 'com.jfoenix:jfoenix:8.0.8'
+
+}

@@ -1,3 +1,7 @@
+ext {
+
+}
+
 dependencies {
 
     compile project(":ibook-commons")

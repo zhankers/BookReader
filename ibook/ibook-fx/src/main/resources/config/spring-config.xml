@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+
+
+       http://www.springframework.org/schema/data/jpa
+       http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--包扫描-->
+    <context:component-scan base-package="com.ibook.fx.controller"/>
+    <context:component-scan base-package="com.ibook.fx.service"/>
+    <context:component-scan base-package="com.ibook.fx.util"/>
+
+    <!-- 数据库连接配置 -->
+    <context:property-placeholder location="classpath:/config/database.properties"/>
+    <!-- 数据源 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClass" value="${mysql.driver}"/>
+        <property name="jdbcUrl" value="${mysql.url}"/>
+        <property name="user" value="${mysql.username}"/>
+        <property name="password" value="${mysql.password}"/>
+        <property name="initialPoolSize" value="${connection_pools.initial_pool_size}"/>
+        <property name="minPoolSize" value="${connection_pools.min_pool_size}"/>
+        <property name="maxPoolSize" value="${connection_pools.max_pool_size}"/>
+        <property name="maxIdleTime" value="${connection_pools.max_idle_time}"/>
+        <property name="acquireIncrement" value="${connection_pools.acquire_increment}"/>
+        <property name="checkoutTimeout" value="${connection_pools.checkout_timeout}"/>
+    </bean>
+
+
+    <!--JPA-->
+    <!-- 实体管理器 -->
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <!--数据源-->
+        <property name="dataSource" ref="dataSource"/>
+        <!--实体类-->
+        <property name="packagesToScan" value="com.ibook.fx.entity"/>
+        <!--JPA实现厂商-->
+        <property name="persistenceProvider">
+            <bean class="org.hibernate.jpa.HibernatePersistenceProvider"/>
+        </property>
+        <!--JPA实现厂商的特定属性-->
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <!--数据库类型-->
+                <property name="database" value="MYSQL"/>
+                <property name="generateDdl" value="false"/>
+                <property name="databasePlatform" value="${hibernate.dialect}"/>
+                <property name="showSql" value="true"/>
+                <property name="prepareConnection" value="true"/>
+            </bean>
+        </property>
+        <!--指定一些高级特性-->
+        <property name="jpaDialect">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect"/>
+        </property>
+        <!--指定JPA属性-->
+        <property name="jpaPropertyMap">
+            <map>
+                <entry key="hibernate.show_sql" value="${hibernate.show_sql}"/>
+                <entry key="hibernate.format_sql" value="${hibernate.format_sql}"/>
+                <entry key="hibernate.hbm2ddl.auto" value="${hibernate.hbm2ddl.auto}"/>
+                <entry key="hibernate.query.substitutions" value="${hibernate.query.substitutions}"/>
+                <entry key="hibernate.default_batch_fetch_size" value="${hibernate.default_batch_fetch_size}"/>
+                <entry key="hibernate.max_fetch_depth" value="${hibernate.max_fetch_depth}"/>
+                <entry key="hibernate.generate_statistics" value="${hibernate.generate_statistics}"/>
+                <entry key="hibernate.bytecode.use_reflection_optimizer"
+                       value="${hibernate.bytecode.use_reflection_optimizer}"/>
+                <entry key="hibernate.cache.use_second_level_cache" value="${hibernate.cache.use_second_level_cache}"/>
+                <entry key="hibernate.cache.use_query_cache" value="${hibernate.cache.use_query_cache}"/>
+                <entry key="hibernate.current_session_context_class"
+                       value="${hibernate.current_session_context_class}"/>
+                <entry key="javax.persistence.validation.mode" value="${javax.persistence.validation.mode}"/>
+            </map>
+        </property>
+    </bean>
+
+    <!-- dao -->
+    <jpa:repositories base-package="com.ibook.fx.dao" repository-impl-postfix="Impl"
+                      entity-manager-factory-ref="entityManagerFactory" transaction-manager-ref="transactionManager"/>
+
+    <!-- 事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
+    <!-- 支持注解方式声明式事务 -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <!--i18n-->
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <!--引用资源文件-->
+                <value>classpath:/i18n/validation_messages</value>
+                <value>classpath:/i18n/ui_main</value>
+                <value>classpath:/i18n/ui_login</value>
+                <value>classpath:/i18n/ui_register</value>
+            </list>
+        </property>
+        <property name="fileEncodings" value="utf-8"/>
+    </bean>
+    <bean id="resourceBundle" class="org.springframework.context.support.MessageSourceResourceBundle">
+        <constructor-arg name="source" ref="messageSource"/>
+        <constructor-arg name="locale">
+            <bean class="java.util.Locale" factory-method="getDefault"/>
+        </constructor-arg>
+    </bean>
+
+
+    <!--检验器-->
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <!--由HibernateValidator提供实现-->
+        <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
+        <!--指定校验使用的资源文件，在文件中配置校验错误信息，如果不指定则默认使用classpath下的ValidationMessages.properties -->
+        <property name="validationMessageSource" ref="messageSource"/>
+    </bean>
+
+</beans>

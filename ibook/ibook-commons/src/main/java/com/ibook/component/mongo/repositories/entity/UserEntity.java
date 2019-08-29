@@ -1,6 +1,9 @@
 package com.ibook.component.mongo.repositories.entity;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 /**
  * @Description:
@@ -9,9 +12,24 @@ import org.springframework.data.mongodb.core.mapping.Document;
  */
 @Document(collection = "T_User")
 public class UserEntity {
+
+    @Id
+    private String id;
+    @Indexed
+    @Field("username")
     private String username;
+    @Field("age")
     private Integer age;
+    @Field("address")
     private String address;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;

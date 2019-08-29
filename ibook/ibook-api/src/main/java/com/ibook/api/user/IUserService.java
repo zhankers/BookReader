@@ -10,4 +10,6 @@ import com.ibook.api.user.dto.UserDTO;
 public interface IUserService {
 
     UserDTO login(String loginReq);
+
+    String register(String loginReq);
 }
