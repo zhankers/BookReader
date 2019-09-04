@@ -14,7 +14,14 @@ allprojects {
     repositories {
         mavenLocal()
         mavenCentral()
+        maven { url 'http://repo.spring.io/milestone' }
     }
+
+    /*dependencyManagement {
+        imports {
+            mavenBom "io.projectreactor:reactor-bom:Bismuth-RELEASE"
+        }
+    }*/
 
 }
 
@@ -62,6 +69,8 @@ subprojects { subject ->
         implementation 'org.apache.kafka:kafka-streams'
         implementation 'org.springframework.kafka:spring-kafka'
         runtimeOnly 'mysql:mysql-connector-java'
+        compile 'io.projectreactor:reactor-core'
+
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
         testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
         testImplementation 'io.projectreactor:reactor-test'

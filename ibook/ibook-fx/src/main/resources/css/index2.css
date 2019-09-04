@@ -1,0 +1,17 @@
+BorderPane {
+    -fx-background-color: #9a6fff;
+}
+
+VBox {
+    -fx-background-color: #abb5ff;
+}
+
+AnchorPane  {
+    -fx-background-color: #a7ff90;
+}
+
+.titleMenu {
+    -fx-font-family: "Microsoft YaHei UI Light";
+    -fx-font-size: 15;
+    -fx-text-fill: #ff09d8;
+}

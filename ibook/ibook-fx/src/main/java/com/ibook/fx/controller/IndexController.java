@@ -1,6 +1,6 @@
 package com.ibook.fx.controller;
 
-import com.ibook.fx.Main;
+import com.ibook.fx.IBookFxMainx;
 import com.ibook.fx.fxmlview.IndexFxmlView;
 import de.felixroske.jfxsupport.FXMLController;
 import javafx.event.ActionEvent;
@@ -35,6 +35,6 @@ public class IndexController implements Initializable {
  
     @FXML
     public void btnLoginClick(ActionEvent actionEvent) {
-        Main.showView(IndexFxmlView.class);
+        IBookFxMainx.showView(IndexFxmlView.class);
     }
 }
