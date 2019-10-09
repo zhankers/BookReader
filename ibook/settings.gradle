@@ -4,4 +4,5 @@ include 'ibook-commons'
 include 'ibook-portal'
 include 'ibook-api'
 include 'ibook-fx'
+include 'ibook-algorithm'
 

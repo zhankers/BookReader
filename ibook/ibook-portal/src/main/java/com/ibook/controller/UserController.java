@@ -1,4 +1,4 @@
-package com.ibook.controller.user;
+package com.ibook.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.ibook.api.user.IUserService;

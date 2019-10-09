@@ -1,6 +1,8 @@
 server:
   port: 8088 #Tomcat端口
 spring:
+  application:
+    name: springboot-dubbo-ibook
   main:
     allow-bean-definition-overriding: true
   datasource:
@@ -13,14 +15,20 @@ spring:
       initialSize: 5
       maxActive: 20
       maxWait: 60000
-  application:
-    name: springboot-dubbo-ibook
+
   data:
     mongodb:
       uri: mongodb://localhost:27017/ibook
 #      uri: mongodb://zzq:123456@localhost:27017/mydb
 #      uri: mongodb://user:pwd@ip1:port1,ip2:port2/database
+  thymeleaf:
+      cache: false
 
+logging:
+  level:
+    root: WARN
+    org.springframework.web: INFO
+    org.springframework.security: INFO
 
 dubbo:
   scan:

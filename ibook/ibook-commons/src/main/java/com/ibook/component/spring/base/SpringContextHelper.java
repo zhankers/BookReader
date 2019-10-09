@@ -8,6 +8,7 @@ import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.beans.factory.NoUniqueBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Nullable;
 
@@ -16,6 +17,7 @@ import javax.annotation.Nullable;
  * @Authr: yaunde
  * @Date: 2019-08-31 23:52
  */
+@Component
 public class SpringContextHelper implements ApplicationContextAware {
 
     private static ApplicationContext springContext;

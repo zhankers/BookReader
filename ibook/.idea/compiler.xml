@@ -2,6 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="ibook-algorithm_main" target="1.8" />
+      <module name="ibook-algorithm_test" target="1.8" />
       <module name="ibook-api_main" target="1.8" />
       <module name="ibook-api_test" target="1.8" />
       <module name="ibook-commons_main" target="1.8" />
