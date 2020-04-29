@@ -1,13 +1,17 @@
 package com.ibook.algorithm.datastruct;
 
 /**
- *  节点
+ * 节点
  */
 class Node {
     int value = -1;
-    /** 跨越几层 */
+    /**
+     * 跨越几层
+     */
     int level;
-    /** 指向下一个节点 */
+    /**
+     * 指向下一个节点
+     */
     Node[] next;
 
     Node(int value, int level) {
@@ -19,13 +23,21 @@ class Node {
 
 //跳跃表
 public class SkipList {
-    /** 允许的最大层数 */
+    /**
+     * 允许的最大层数
+     */
     int maxLevel = 16;
-    /** 头节点，充当辅助。 */
+    /**
+     * 头节点，充当辅助。
+     */
     Node head = new Node(-1, maxLevel);
-    /** 当前跳跃表节点的个数 */
+    /**
+     * 当前跳跃表节点的个数
+     */
     int size = 0;
-    /** 当前跳跃表的层数,初始化为1层。 */
+    /**
+     * 当前跳跃表的层数,初始化为1层。
+     */
     int levelCount = 1;
 
     public Node find(int value) {
@@ -45,8 +57,8 @@ public class SkipList {
     }
 
     /**
-     *  为了方便，跳跃表在插入的时候，插入的节点在当前跳跃表是不存在的
-     *  不允许插入重复数值的节点。
+     * 为了方便，跳跃表在插入的时候，插入的节点在当前跳跃表是不存在的
+     * 不允许插入重复数值的节点。
      */
     public void insert(int value) {
         int level = getLevel();
@@ -93,7 +105,9 @@ public class SkipList {
         }
     }
 
-    /** 打印所有节点 */
+    /**
+     * 打印所有节点
+     */
     public void printAllNode() {
         Node temp = head;
         while (temp.next[0] != null) {

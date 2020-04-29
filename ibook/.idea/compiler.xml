@@ -8,6 +8,8 @@
       <module name="ibook-api_test" target="1.8" />
       <module name="ibook-commons_main" target="1.8" />
       <module name="ibook-commons_test" target="1.8" />
+      <module name="ibook-eureka_main" target="1.8" />
+      <module name="ibook-eureka_test" target="1.8" />
       <module name="ibook-fx_main" target="1.8" />
       <module name="ibook-fx_test" target="1.8" />
       <module name="ibook-portal_main" target="1.8" />

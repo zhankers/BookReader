@@ -15,7 +15,9 @@
                 <Font size="61.0"/>
             </font>
         </Label>
-        <JFXButton fx:id="btn" layoutX="249.0" layoutY="271.0" mnemonicParsing="false" text="Button" onAction="#btnClick"/>
-        <JFXButton fx:id="btnLogin" layoutX="149.0" layoutY="271.0" mnemonicParsing="false" text="Login" onAction="#btnLoginClick"/>
+        <JFXButton fx:id="btn" layoutX="249.0" layoutY="271.0" mnemonicParsing="false" text="Button"
+                   onAction="#btnClick"/>
+        <JFXButton fx:id="btnLogin" layoutX="149.0" layoutY="271.0" mnemonicParsing="false" text="Login"
+                   onAction="#btnLoginClick"/>
     </children>
 </AnchorPane>

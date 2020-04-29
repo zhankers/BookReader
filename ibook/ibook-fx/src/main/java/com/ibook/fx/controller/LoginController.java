@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 
 @FXMLController
 public class LoginController implements Initializable {
- 
+
     @FXML
     private TextField tfUsername;
     @FXML
@@ -22,21 +22,21 @@ public class LoginController implements Initializable {
     private Button btnReset;
     @FXML
     private Button btnLogin;
- 
+
     private User user = new User();
- 
- 
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tfUsername.textProperty().bindBidirectional(user.usernameProperty());
         tfPassword.textProperty().bindBidirectional(user.passwordProperty());
     }
- 
+
     @FXML
     public void login(ActionEvent actionEvent) {
         System.out.println(user.getUsername() + "-" + user.getPassword());
     }
- 
+
     public void reset(ActionEvent actionEvent) {
         tfUsername.clear();
         tfPassword.clear();

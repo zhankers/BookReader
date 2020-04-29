@@ -7,7 +7,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../css/index2.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibook.fx.controller.Index2Controller">
+<BorderPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../css/index2.css"
+            xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.ibook.fx.controller.Index2Controller">
     <left>
         <VBox prefHeight="520.0" prefWidth="189.0" stylesheets="@../css/index2.css" BorderPane.alignment="CENTER">
             <children>
@@ -15,44 +17,45 @@
 
                     <panes>
 
-                        <TitledPane prefHeight="283.0" prefWidth="154.0" styleClass="titleMenu" stylesheets="@../css/index2.css" text="菜单 1">
+                        <TitledPane prefHeight="283.0" prefWidth="154.0" styleClass="titleMenu"
+                                    stylesheets="@../css/index2.css" text="菜单 1">
                             <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="152.0" />
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="152.0"/>
                             </content>
                             <font>
-                                <Font size="15.0" />
+                                <Font size="15.0"/>
                             </font>
                         </TitledPane>
                         <TitledPane prefHeight="346.0" prefWidth="154.0" text="菜单 2">
                             <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
                             </content>
-                             <font>
-                                <Font size="15.0" />
-                             </font>
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
                         </TitledPane>
                         <TitledPane text="菜单 3">
                             <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
                             </content>
                             <font>
-                                <Font size="15.0" />
+                                <Font size="15.0"/>
                             </font>
                         </TitledPane>
                         <TitledPane text="菜单 4">
                             <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
                             </content>
                             <font>
-                                <Font size="15.0" />
+                                <Font size="15.0"/>
                             </font>
                         </TitledPane>
                         <TitledPane prefHeight="516.0" prefWidth="154.0" text="菜单 5">
                             <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
                             </content>
                             <font>
-                                <Font size="15.0" />
+                                <Font size="15.0"/>
                             </font>
                         </TitledPane>
                     </panes>
@@ -61,6 +64,6 @@
         </VBox>
     </left>
     <top>
-        <AnchorPane prefHeight="80.0" prefWidth="900.0" stylesheets="@../css/index2.css" BorderPane.alignment="CENTER" />
+        <AnchorPane prefHeight="80.0" prefWidth="900.0" stylesheets="@../css/index2.css" BorderPane.alignment="CENTER"/>
     </top>
 </BorderPane>

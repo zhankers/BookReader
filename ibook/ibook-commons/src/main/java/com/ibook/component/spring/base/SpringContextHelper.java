@@ -39,10 +39,11 @@ public class SpringContextHelper implements ApplicationContextAware {
      * returned objects in the case of Singleton beans.
      * <p>Translates aliases back to the corresponding canonical bean name.
      * Will ask the parent factory if the bean cannot be found in this factory instance.
+     *
      * @param name the name of the bean to retrieve
      * @return an instance of the bean
      * @throws NoSuchBeanDefinitionException if there is no bean with the specified name
-     * @throws BeansException if the bean could not be obtained
+     * @throws BeansException                if the bean could not be obtained
      */
     public static Object getBean(String name) {
         return springContext.getBean(name);
@@ -54,11 +55,12 @@ public class SpringContextHelper implements ApplicationContextAware {
      * but may also be translated into a conventional by-name lookup based on the name
      * of the given type. For more extensive retrieval operations across sets of beans,
      * use {@link ListableBeanFactory} and/or {@link BeanFactoryUtils}.
+     *
      * @param clazz type the bean must match; can be an interface or superclass
      * @return an instance of the single bean matching the required type
-     * @throws NoSuchBeanDefinitionException if no bean of the given type was found
+     * @throws NoSuchBeanDefinitionException   if no bean of the given type was found
      * @throws NoUniqueBeanDefinitionException if more than one bean of the given type was found
-     * @throws BeansException if the bean could not be created
+     * @throws BeansException                  if the bean could not be created
      */
     public static <T> T getBean(Class<T> clazz) {
         return springContext.getBean(clazz);
@@ -72,14 +74,15 @@ public class SpringContextHelper implements ApplicationContextAware {
      * the result correctly, as can happen with {@link #getBean(String)}.
      * <p>Translates aliases back to the corresponding canonical bean name.
      * Will ask the parent factory if the bean cannot be found in this factory instance.
-     * @param name the name of the bean to retrieve
+     *
+     * @param name  the name of the bean to retrieve
      * @param clazz type the bean must match; can be an interface or superclass
      * @return an instance of the bean
-     * @throws NoSuchBeanDefinitionException if there is no such bean definition
+     * @throws NoSuchBeanDefinitionException  if there is no such bean definition
      * @throws BeanNotOfRequiredTypeException if the bean is not of the required type
-     * @throws BeansException if the bean could not be created
+     * @throws BeansException                 if the bean could not be created
      */
-    public static <T> T getBean(String name, @Nullable Class<T> clazz){
+    public static <T> T getBean(String name, @Nullable Class<T> clazz) {
         return springContext.getBean(name, clazz);
     }
 

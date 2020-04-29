@@ -30,10 +30,10 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	// @formatter:off
+    // @formatter:off
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
 //		http.authorizeRequests(authorizeRequests ->
 //					authorizeRequests
 //						.antMatchers("/css/**", "/index").permitAll()
@@ -44,18 +44,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //						.loginPage("/login")
 //						.failureUrl("/login-error")
 //				);
-	}
+    }
 
-	// @formatter:on
+    // @formatter:on
 
-	@Bean
-	@Override
-	public UserDetailsService userDetailsService() {
-		UserDetails userDetails = User.withDefaultPasswordEncoder()
-				.username("user")
-				.password("password")
-				.roles("USER")
-				.build();
-		return new InMemoryUserDetailsManager(userDetails);
-	}
+    @Bean
+    @Override
+    public UserDetailsService userDetailsService() {
+        UserDetails userDetails = User.withDefaultPasswordEncoder()
+                .username("user")
+                .password("password")
+                .roles("USER")
+                .build();
+        return new InMemoryUserDetailsManager(userDetails);
+    }
 }

@@ -13,7 +13,7 @@ public class PrimeNumberCollector implements Collector<Integer, Map<Boolean, Lis
 
     @Override
     public Supplier<Map<Boolean, List<Integer>>> supplier() {
-        return () -> new HashMap<Boolean, List<Integer>>(2){{
+        return () -> new HashMap<Boolean, List<Integer>>(2) {{
             put(true, new ArrayList<>());
             put(false, new ArrayList<>());
         }};
@@ -33,7 +33,7 @@ public class PrimeNumberCollector implements Collector<Integer, Map<Boolean, Lis
      */
     @Override
     public BinaryOperator<Map<Boolean, List<Integer>>> combiner() {
-        return (Map<Boolean, List<Integer>> acc1, Map<Boolean, List<Integer>> acc2) ->{
+        return (Map<Boolean, List<Integer>> acc1, Map<Boolean, List<Integer>> acc2) -> {
             acc1.get(true).addAll(acc2.get(true));
             acc1.get(false).addAll(acc2.get(false));
             return acc1;
@@ -51,7 +51,6 @@ public class PrimeNumberCollector implements Collector<Integer, Map<Boolean, Lis
     }
 
     /**
-     *
      * @return
      */
     @Override
@@ -60,7 +59,7 @@ public class PrimeNumberCollector implements Collector<Integer, Map<Boolean, Lis
     }
 
     public static boolean isPrimeNumber(List<Integer> primaes, int candidate) {
-        int candidateRoot = (int)Math.sqrt((double) candidate);
+        int candidateRoot = (int) Math.sqrt((double) candidate);
         return takeWhile(primaes, i -> i <= candidateRoot).stream().noneMatch(p -> candidate % p == 0);
     }
 
@@ -68,7 +67,7 @@ public class PrimeNumberCollector implements Collector<Integer, Map<Boolean, Lis
         int i = 0;
         for (A item : list) {
             if (!p.test(item)) {
-                return list.subList(0,i);
+                return list.subList(0, i);
             }
             i++;
         }

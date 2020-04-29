@@ -2,6 +2,9 @@ ext {
 
 }
 
+// 生成jar包的时候，没有生成，且输出Task:jar SKIPPED!
+jar.enabled = true
+
 dependencies {
 
     compile project(":ibook-commons")

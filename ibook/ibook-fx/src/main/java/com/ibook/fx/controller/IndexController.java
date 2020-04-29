@@ -14,25 +14,25 @@ import java.util.ResourceBundle;
 
 @FXMLController
 public class IndexController implements Initializable {
- 
+
     @FXML
     private Button btn;
     @FXML
     private Label tx;
- 
+
     private ResourceBundle resourceBundle;
- 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         resourceBundle = resources;
     }
- 
+
     @FXML
     public void btnClick(ActionEvent actionEvent) {
         //tx.setText(resourceBundle.getString("helloWorld"));
         tx.setText("你好");
     }
- 
+
     @FXML
     public void btnLoginClick(ActionEvent actionEvent) {
         IBookFxMainx.showView(IndexFxmlView.class);

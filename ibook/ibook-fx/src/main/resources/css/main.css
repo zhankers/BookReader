@@ -43,10 +43,12 @@
     -fx-border-color: rgb(230, 230, 230);
     -fx-text-fill: rgb(110, 110, 110);
 }
+
 /*深灰色主题*/
 .dark-gray-theme {
     -fx-background-color: rgb(58, 61, 73);
 }
+
 /*深色主题*/
 .dark-theme {
     -fx-background-color: rgb(40, 43, 51);

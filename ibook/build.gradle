@@ -1,6 +1,16 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        // 主要就是这个从插件的信息，这个插件是帮助打包
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.9.RELEASE")
+    }
+}
+
 plugins {
-    id 'org.springframework.boot' version '2.1.7.RELEASE'  apply false
-    id 'io.spring.dependency-management' version '1.0.8.RELEASE'  apply false
+    id 'org.springframework.boot' version '2.1.7.RELEASE' apply false
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE' apply false
     id 'java'
 }
 
@@ -47,7 +57,10 @@ ext {
 
 
 subprojects { subject ->
-    if (subject.name.endsWith("ibook-api") || subject.name.endsWith("ibook-fx")) return
+    if (subject.name.endsWith("ibook-api")
+            || subject.name.endsWith("ibook-fx")
+            || subject.name.endsWith("ibook-eureka")
+    ) return
 
     apply plugin: 'java'
     apply plugin: 'org.springframework.boot'

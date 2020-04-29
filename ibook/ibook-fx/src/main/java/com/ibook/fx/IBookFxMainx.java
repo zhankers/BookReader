@@ -8,6 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class IBookFxMainx extends AbstractJavaFxApplicationSupport {
     public static void main(String[] args) {
         launch(IBookFxMainx.class, Index2FxmlView.class, args);
- 
+
     }
 }

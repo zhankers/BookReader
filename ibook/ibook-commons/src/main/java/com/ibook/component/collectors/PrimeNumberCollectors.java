@@ -15,16 +15,16 @@ import java.util.stream.IntStream;
  */
 public class PrimeNumberCollectors {
 
-    public static Map<Boolean,List<Integer>> partitionPrimesWithCustomCollector(int n) {
-        return IntStream.rangeClosed(2,n).boxed().collect(
-                () -> new HashMap<Boolean, List<Integer>>(){{
+    public static Map<Boolean, List<Integer>> partitionPrimesWithCustomCollector(int n) {
+        return IntStream.rangeClosed(2, n).boxed().collect(
+                () -> new HashMap<Boolean, List<Integer>>() {{
                     put(true, new ArrayList<>());
                     put(false, new ArrayList<>());
                 }},
                 (Map<Boolean, List<Integer>> acc, Integer candidate) -> {
                     acc.get(isPrimeNumber(acc.get(true), candidate)).add(candidate);
                 },
-                (Map<Boolean, List<Integer>> acc1, Map<Boolean, List<Integer>> acc2) ->{
+                (Map<Boolean, List<Integer>> acc1, Map<Boolean, List<Integer>> acc2) -> {
                     acc1.get(true).addAll(acc2.get(true));
                     acc1.get(false).addAll(acc2.get(false));
                 }
@@ -32,7 +32,7 @@ public class PrimeNumberCollectors {
     }
 
     public static boolean isPrimeNumber(List<Integer> primaes, int candidate) {
-        int candidateRoot = (int)Math.sqrt((double) candidate);
+        int candidateRoot = (int) Math.sqrt((double) candidate);
         return takeWhile(primaes, i -> i <= candidateRoot).stream().noneMatch(p -> candidate % p == 0);
     }
 
@@ -48,7 +48,7 @@ public class PrimeNumberCollectors {
         int i = 0;
         for (A item : list) {
             if (!p.test(item)) {
-                return list.subList(0,i);
+                return list.subList(0, i);
             }
             i++;
         }
@@ -58,8 +58,9 @@ public class PrimeNumberCollectors {
     public static void main(String[] args) {
 
     }
+
     public static boolean isPrimeNumber2(List<Integer> primaes, int candidate) {
-        int candidateRoot = (int)Math.sqrt((double) candidate);
+        int candidateRoot = (int) Math.sqrt((double) candidate);
         return takeWhile(primaes, i -> i <= candidateRoot).stream().noneMatch(p -> candidate % p == 0);
     }
 

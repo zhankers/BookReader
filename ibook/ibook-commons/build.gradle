@@ -2,14 +2,10 @@ plugins {
     id 'java'
 }
 
-repositories {
-    mavenCentral()
-}
+// 生成jar包的时候，没有生成，且输出Task:jar skipped!
+jar.enabled = true
 
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-}
-
+/*
 def createDir = {
     path ->
         File dir = new File(path)
@@ -24,4 +20,5 @@ task createSourceDir(){
         paths.forEach(createDir)
     }
 }
+*/
 

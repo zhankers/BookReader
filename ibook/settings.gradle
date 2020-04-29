@@ -1,8 +1,20 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
+        maven { url "http://maven.aliyun.com/repository/gradle-plugin" }
+
+    }
+}
+
 rootProject.name = 'ibook'
 include 'ibook-service'
 include 'ibook-commons'
 include 'ibook-portal'
 include 'ibook-api'
 include 'ibook-fx'
-include 'ibook-algorithm'
+// include 'ibook-algorithm'
+include 'ibook-eureka'
+
+
 
