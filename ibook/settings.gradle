@@ -15,6 +15,5 @@ include 'ibook-api'
 include 'ibook-fx'
 // include 'ibook-algorithm'
 include 'ibook-eureka'
-
-
+//include 'ibook-scala'
 

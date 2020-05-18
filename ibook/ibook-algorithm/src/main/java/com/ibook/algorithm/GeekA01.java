@@ -1,7 +1,5 @@
 package com.ibook.algorithm;
 
-import org.springframework.core.io.ClassPathResource;
-
 import java.io.FileReader;
 import java.io.LineNumberReader;
 import java.util.ArrayList;
