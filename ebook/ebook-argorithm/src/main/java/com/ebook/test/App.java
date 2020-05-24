@@ -1,4 +1,4 @@
-package com.ebook;
+package com.ebook.test;
 
 import com.ebook.argorithm.datastruct.TreeNode;
 

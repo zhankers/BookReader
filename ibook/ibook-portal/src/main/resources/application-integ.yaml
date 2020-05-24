@@ -1,0 +1,154 @@
+server:
+    port: 8964
+    servlet:
+       context-path: /f4
+spring:
+  ## quartz定时任务,采用数据库方式
+  activiti:
+     check-process-definitions: false
+  quartz:
+     job-store-type: jdbc
+  #json 时间戳统一转换
+  jackson:
+    date-format:   yyyy-MM-dd HH:mm:ss
+    time-zone:   GMT+8
+  aop:
+    proxy-target-class: true
+  #配置freemarker
+  freemarker:
+    # 设置模板后缀名
+    suffix: .ftl
+    # 设置文档类型
+    content-type: text/html
+    # 设置页面编码格式
+    charset: UTF-8
+    # 设置页面缓存
+    cache: false
+    # 设置ftl文件路径
+    template-loader-path:
+      - classpath:/templates
+  # 设置静态文件路径，js,css等
+  mvc:
+    static-path-pattern: /**
+  resource:
+    static-locations: classpath:/static/,classpath:/public/
+  autoconfigure:
+    exclude: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
+  datasource:
+    druid:
+      stat-view-servlet:
+        loginUsername: admin
+        loginPassword: 123456
+    dynamic:
+      druid: # 全局druid参数，绝大部分值和默认保持一致。(现已支持的参数如下,不清楚含义不要乱设置)
+        # 连接池的配置信息
+        # 初始化大小，最小，最大
+        initial-size: 5
+        min-idle: 5
+        maxActive: 20
+        # 配置获取连接等待超时的时间
+        maxWait: 60000
+        # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+        timeBetweenEvictionRunsMillis: 60000
+        # 配置一个连接在池中最小生存的时间，单位是毫秒
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: SELECT 1 FROM DUAL
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        # 打开PSCache，并且指定每个连接上PSCache的大小
+        poolPreparedStatements: true
+        maxPoolPreparedStatementPerConnectionSize: 20
+        # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+        filters: stat,wall,slf4j
+        # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+        connectionProperties:
+            Properties:
+              druid:
+                stat:
+                  mergeSql: true
+                  slowSqlMillis: 5000
+      datasource:
+        master:
+            url: jdbc:mysql://127.0.0.1:3306/ksyun?characterEncoding=UTF-8&useUnicode=true&useSSL=false
+            username: root
+            password: 123
+            driver-class-name: com.mysql.jdbc.Driver
+       #多数据源配置
+#        slave:
+#            url: jdbc:mysql://127.0.0.1:3306/hive?characterEncoding=UTF-8&useUnicode=true&useSSL=false
+#            username: root
+#            password: liqing
+#            driver-class-name: com.mysql.jdbc.Driver
+        hive:
+            url: jdbc:hive2://168.61.2.26:10000/default
+            username: test1
+            password: 123456
+            driver-class-name: org.apache.hive.jdbc.HiveDriver
+
+  #redis 配置
+  redis:
+     database: 0
+     host: 168.61.10.222
+     lettuce:
+       pool:
+         max-active: 8   #最大连接数据库连接数,设 0 为没有限制
+         max-idle: 8     #最大等待连接中的数量,设 0 为没有限制
+         max-wait: -1ms  #最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。
+         min-idle: 0     #最小等待连接中的数量,设 0 为没有限制
+       shutdown-timeout: 100ms
+     password: ''
+     port: 6379
+  rabbitmq:
+     host: localhost
+     port: 5672
+     username: guest
+     password: guest
+#mybatis plus 设置
+mybatis-plus:
+   mapper-locations: classpath:mapper/**/*.xml
+
+#文件上传根目录 设置
+uploadpath: /app/tiany/dsw/upload/
+uploadProjectPath: /app/tiany/dsw/project
+uploadHistoryPath: /app/tiany/dsw/history
+uploadResourceToHDFSPath: /jsyun
+resourceNodeDir: resource
+
+hdfs:
+  url: http://168.61.10.212:30014
+  uploadFileapi: /api/v1/fileSystem/io
+
+swagger:
+    basepackage: com.f4.user.controller
+    service:
+        name: proSignuser
+        description: proSignuser后端服务接口
+        developer: F1
+
+smsTemplate:
+    verificationCode: SMS_135792813
+    examinationPassed: SMS_136166506
+    examinationfail: SMS_136176380
+    firstLoginCode: SMS_136390578
+    registerCode: SMS_136386511
+    adminInfoCode: SMS_136384807
+    doctorGroupReviewCode: SMS_139239978
+
+sms:
+  keyId: LTAIH0nfkWRh3mlR
+  keySecret: EiyMn9bvAsot0s6LHaldTLoGo0BHag
+  signName: xx
+
+f4:
+  security:
+    browser:
+      enable: false
+      sign-in-page: /demo-signIn.html
+      sign-in-response-type: REDIRECT
+      sing-in-success-url: /manage.html
+      remember-me-seconds: 294000
+      sign-out-url: /demo-logout.html
+      sign-up-url: /demo-signUp.html
+    code:
+      enable-get-method: true

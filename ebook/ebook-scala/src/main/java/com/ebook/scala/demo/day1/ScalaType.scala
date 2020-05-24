@@ -14,6 +14,7 @@ object ScalaType {
     var longnum:Long = 123L
     var doubleNum:Double = 123.91
     var ch:Char = '1'
+    num += 4
 
     printf("字符串拼接 " + str + str2)
     // 支持$符引用

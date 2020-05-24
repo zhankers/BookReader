@@ -1,4 +1,4 @@
-package com.ebook;
+package com.ebook.test;
 
 /**
  * @Description: 给定两个链表 L1: 1 -> 5 -> 7 -> 9； L2: 9 -> 6 -> 7
