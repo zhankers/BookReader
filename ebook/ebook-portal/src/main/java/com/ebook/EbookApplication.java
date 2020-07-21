@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.web.WebApplicationInitializer;
 
 @PropertySource(value = {
         "classpath:META-INF/spring/application.properties",
@@ -15,6 +16,8 @@ import org.springframework.context.annotation.PropertySource;
 public class EbookApplication {
 
     public static void main(String[] args) {
+        System.out.println(WebApplicationInitializer.class.isInterface());
+
         SpringApplication.run(EbookApplication.class, args);
     }
 

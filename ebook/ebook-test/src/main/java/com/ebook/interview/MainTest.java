@@ -1,5 +1,7 @@
 package com.ebook.interview;
 
+import org.junit.Test;
+
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -152,6 +154,12 @@ public class MainTest {
         saleItem1.setSaleNumbers(565.93);
         saleItem1.setTransationId("1");
 
+
         return Arrays.asList(saleItem1, saleItem2, saleItem3, saleItem4, saleItem5, saleItem6, saleItem7, saleItem8, saleItem9, saleItem10, saleItem12, saleItem11);
+    }
+
+    @Test
+    public void test111() {
+
     }
 }
