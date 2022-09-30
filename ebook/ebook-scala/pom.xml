@@ -12,7 +12,7 @@
     <artifactId>ebook-scala</artifactId>
     <properties>
         <java.version>11</java.version>
-        <scala.version>2.13.2</scala.version>
+        <scala.version>2.13.9</scala.version>
     </properties>
 
 
